@@ -1,29 +1,32 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-navbar>
-</ion-header>
-
 <ion-content padding>
   <ion-list no-lines>
-    <ion-item>
-      <ion-range min="0" step="5" [(ngModel)]="text">
-        <ion-label range-left class="small-text">A</ion-label>
-        <ion-label range-right>A</ion-label>
-      </ion-range>
-    </ion-item>
+    <ion-title text-center>오늘의 운동을 시작해보세요!</ion-title>
+    <progress-bar [progress]="80"></progress-bar>
 
-    <ion-item>
-      <ion-label item-end>{{text}}</ion-label>
-    </ion-item>
-
-    <ion-item>
+    <ion-item style="background:transparent">
       <avatar></avatar>
     </ion-item>
 
+
+    <div style="text-align:center;">
+      <button ion-button color="light" (click)="goRoutine()" round>운동시작!</button>
+    </div>
   </ion-list>
-  <lastest></lastest>
-  <button ion-button (click)="goRoutine()">운동시작</button>
+
+  <ion-grid>
+    <ion-row class="myFitness">
+      <ion-label class="title" style="font-weight:bold">나의 운동</ion-label>
+    </ion-row>
+
+
+    <ion-scroll scrollX="true">
+      <div *ngFor="let x of lastestFitness;let i = index" class="h-scroll">
+        <!-- <div>  
+          <img src="/assets/imgs/logo.png" (click)="goBucket(i);" width="100%" height="100%">
+        </div> -->
+        <ion-label>{{x.title}}</ion-label>
+      </div>
+    </ion-scroll>
+  </ion-grid>
+
 </ion-content>

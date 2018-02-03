@@ -1,4 +1,40 @@
 page-home {
+    ion-content{
+        background-image: url('../assets/imgs/main.png') !important;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        ion-list{
+            text-align: center;
+            ion-title{
+                padding-top: 3%;
+                padding-bottom: 3%;
+                color: #FFF !important;
+            }
+
+            button{
+                font-size: 21px;
+                font-weight: bold !important;
+                background: #FFF !important;  
+
+            }
+        }
+        ion-grid{
+            .myFitness{
+                padding-top:10%;
+                padding-left:3%;
+            }
+            ion-scroll{
+                overflow: scroll;
+                white-space: nowrap; 
+            }
+            div.h-scroll{
+                // display: inline-block;
+                white-space: nowrap;
+            
+            }
+        }
+    }
+
 
     
 }

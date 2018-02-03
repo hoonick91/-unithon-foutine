@@ -1,3 +1,57 @@
-<div (click)="dismiss();">
-  xxx
-</div>
+<ion-header>
+  <ion-navbar>
+    <ion-title mode="ios">일반푸쉬업</ion-title>
+
+    <ion-buttons end right>
+      <button ion-button (click)="dismiss();">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-lines>
+    <ion-item text-center>
+      <img src="assets/imgs/pushup.gif" loop=infinite width="50%" height="50%">
+    </ion-item>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <span class="modal-title">팔,가슴</span>
+          <br>운동부위
+        </ion-col>
+        <ion-col>
+          <span class="modal-title">15회 x 3세트</span>
+          <br>적정 운동 횟수
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span class="modal-title">1분 30초</span>
+          <br>1세트당 소요되는 시간
+        </ion-col>
+        <ion-col>
+          <span class="modal-title">240kcal</span>
+          <br>세트당 소모칼로리
+        </ion-col>
+      </ion-row>
+      <ion-row>
+        <ion-col>
+          <span class="title">운동설명</span>
+          <p style="line-height:23px;">기구를 사용하지 않고 할 수 있는 운동으로, 
+            엎드린 상태에서 전신의 체중을 두 손과 두 발가락의 
+            4개소에 집중하여 양팔을 늘리는 힘에 의해 신체를 올린다. 
+            동작과 팔꿈치 관절을 굽혀 몸을 지상에 붙지
+            않을 정도까지 낮추고, 반복하는 것이 기본적인 방법.</p>
+        </ion-col>
+      </ion-row>
+
+    </ion-grid>
+
+  </ion-list>
+
+
+</ion-content>

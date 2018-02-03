@@ -1,0 +1,37 @@
+page-start {
+    ion-content{
+        background-image: url('../assets/imgs/timer.png');
+        background-size: 100%;
+        background-repeat: no-repeat;
+
+        ion-list{
+            padding-top: 80% !important;   
+        }
+    }
+    .timer{
+        position: absolute;
+        color: #FFF;
+        font-size: 25px;
+        font-weight: bold;
+        top:120px;
+        left:140px;
+    }
+
+    .buttoms{
+        position: absolute;
+        top:180px;
+        left:155px;
+        span{
+            padding:10%;
+        }
+    }
+    .header-title{
+        color: rgba($color: #000000, $alpha: 0.8);
+    }
+    .status{
+        color:#37b8dd;
+        font-size: 15px;
+        margin-left: 50px;
+    }
+
+}

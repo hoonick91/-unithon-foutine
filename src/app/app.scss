@@ -1,16 +1,43 @@
-// http://ionicframework.com/docs/theming/
+// 헤더의 색상
+.toolbar-background-md{
+    background: #37b8dd;
+}
+// 뒤로가기버튼
+.back-button-icon-md{
+    color: #FFF;
+}
+//태그 스타일
+.tag{
+    background: #ccc;
+    border-radius: 15px;
+    font-size: 13px;
+    margin-left:8px;
+    color: rgba($color: #000000, $alpha: 0.7);
+    padding:1px !important;
+  }
+  
+.toolbar-title-ios,.toolbar-title-md{
+    color: #FFF;
+}
+.title{
+    font-size: 19px;
+}
 
+.header-title{
+    font-size: 17px;
+}
+.sub-title{
+    font-size: 15px;
+}
+.fitness-title{
+    font-size: 13px;
+}
+.detail-title{
+    font-size: 11px;
+}
 
-// App Global Sass
-// --------------------------------------------------
-// Put style rules here that you want to apply globally. These
-// styles are for the entire app and not just one component.
-// Additionally, this file can be also used as an entry point
-// to import other Sass files to be included in the output CSS.
-//
-// Shared Sass variables, which can be used to adjust Ionic's
-// default Sass variables, belong in "theme/variables.scss".
-//
-// To declare rules for a specific mode, create a child rule
-// for the .md, .ios, or .wp mode classes. The mode class is
-// automatically applied to the <body> element in the app.
+.toolbar-title-md{
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+}

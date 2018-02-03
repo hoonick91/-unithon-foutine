@@ -1,19 +1,171 @@
 <ion-header>
-  <ion-navbar color="primary">
-    <ion-title>
-      Ionic Accordion
-    </ion-title>
+  <ion-navbar>
+    <ion-title mode="ios">부위운동</ion-title>
+
+    <ion-buttons end right>
+      <button ion-button (click)="goBucket();">
+        <ion-label class="user-name">
+          <img src="assets/imgs/bucket.png" width="30px" height="30px">
+          <span class="bucket">
+            {{count}}
+          </span>
+        </ion-label>
+      </button>
+    </ion-buttons>
+
+    <!-- </ion-toolbar> -->
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
+
   <ion-list>
-    <ion-list-header>
-      Ionic 2 Accordion Example.
-    </ion-list-header>
-    <ion-item padding *ngFor="let d of data" (click)="toggleDetails(d)"><ion-icon color="primary" item-right [name]="d.icon"></ion-icon>
-      {{d.title}}
-      <div *ngIf="d.showDetails" (click)="routine_detail();">{{d.details}}</div>
+    <!-- 운동부위 (가슴운동)-->
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/chest.png">
+      </ion-avatar>
+      <ion-label (click)="chestTitle=!chestTitle">
+        가슴운동
+      </ion-label>
     </ion-item>
+
+    <div class="sub-fitness" *ngIf="chestTitle==true">
+      <ion-item *ngFor="let chest of chests;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{chest.title}}
+            <span class="tag">{{chest.count}}</span>
+            <span class="tag">{{chest.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="chest.check==false" (click)="selFitness(chest);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="chest.check==true" (click)="selFitness(chest);"></ion-icon>
+      </ion-item>
+    </div>
+    <!-- 운동부위 (가슴운동)-->
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/back.png">
+      </ion-avatar>
+      <ion-label (click)="backTitle=!backTitle">
+        등운동
+      </ion-label>
+    </ion-item>
+
+    <div class="sub-fitness" *ngIf="backTitle==true">
+      <ion-item *ngFor="let back of backs;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{back.title}}
+            <span class="tag">{{back.count}}</span>
+            <span class="tag">{{back.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="back.check==false" (click)="selFitness(back);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="back.check==true" (click)="selFitness(back);"></ion-icon>
+
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/shoulder.png">
+      </ion-avatar>
+      <ion-label (click)="shoulderTitle=!shoulderTitle">
+        어깨운동
+      </ion-label>
+    </ion-item>
+
+    <div class="sub-fitness" *ngIf="shoulderTitle==true">
+      <ion-item *ngFor="let shoulder of shoulders;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{shoulder.title}}
+            <span class="tag">{{shoulder.count}}</span>
+            <span class="tag">{{shoulder.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="shoulder.check==false" (click)="selFitness(shoulder);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="shoulder.check==true" (click)="selFitness(shoulder);"></ion-icon>
+
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/leg.png">
+      </ion-avatar>
+      <ion-label (click)="lowerTitle=!lowerTitle">
+        하체운동
+      </ion-label>
+    </ion-item>
+
+    <div class="sub-fitness" *ngIf="lowerTitle==true">
+      <ion-item *ngFor="let lower of lowers;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{lower.title}}
+            <span class="tag">{{lower.count}}</span>
+            <span class="tag">{{lower.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="lower.check==false" (click)="selFitness(lower);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="lower.check==true" (click)="selFitness(lower);"></ion-icon>
+
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/twodoo.png">
+      </ion-avatar>
+      <ion-label (click)="twoTitle=!twoTitle">
+        이두근운동
+      </ion-label>
+    </ion-item>
+
+    <div class="sub-fitness" *ngIf="twoTitle==true">
+      <ion-item *ngFor="let two of twos;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{two.title}}
+            <span class="tag">{{two.count}}</span>
+            <span class="tag">{{two.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="two.check==false" (click)="selFitness(two);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="two.check==true" (click)="selFitness(two);"></ion-icon>
+
+      </ion-item>
+    </div>
+
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/imgs/threedoo.png">
+      </ion-avatar>
+      <ion-label (click)="threeTitle=!threeTitle">
+        삼두근운동
+      </ion-label>
+    </ion-item>
+
+    <div class="sub-fitness" *ngIf="threeTitle==true">
+      <ion-item *ngFor="let three of threes;let detailIndex=index">
+        <span (click)="fitDetail()">
+          <h2>{{three.title}}
+            <span class="tag">{{three.count}}</span>
+            <span class="tag">{{three.kcal}}</span>
+          </h2>
+        </span>
+        <!-- [+/-] icon -->
+        <ion-icon style="color:#37b9dd" name="add" item-right *ngIf="three.check==false" (click)="selFitness(three);"></ion-icon>
+        <ion-icon style="color:#ffd477" name="remove" item-right *ngIf="three.check==true" (click)="selFitness(three);"></ion-icon>
+
+      </ion-item>
+    </div>
+
+
+
   </ion-list>
 </ion-content>

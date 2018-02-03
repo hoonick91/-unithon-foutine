@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, ModalController } from 'ionic-angular';
+import { NavController, ModalController } from 'ionic-angular';
 import { DetailModalComponent } from '../../components/detail-modal/detail-modal';
+import { BucketPage } from '../bucket/bucket';
+import { FitnessProvider } from '../../providers/fitness/fitness';
+import _ from 'lodash';
+
 
 @Component({
   selector: 'page-routine',
@@ -8,32 +12,88 @@ import { DetailModalComponent } from '../../components/detail-modal/detail-modal
 })
 export class RoutinePage {
 
-  data: Array<{title: string, details: string, icon: string, showDetails: boolean}> = [];
-  
-    constructor(public navCtrl: NavController,public modalCtrl: ModalController) {
-      for(let i = 0; i < 10; i++ ){
-        this.data.push({
-            title: 'Title '+i,
-            details: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-            icon: 'ios-add-circle-outline',
-            showDetails: false
-          });
-      }
-    }
+  count:number;
+  myFitness:Array<{title:string,count:string,kcal:string}>=[];
 
-    toggleDetails(data) {
-      if (data.showDetails) {
-          data.showDetails = false;
-          data.icon = 'ios-add-circle-outline';
-      } else {
-          data.showDetails = true;
-          data.icon = 'ios-remove-circle-outline';
-      }
-    }
+  chests: Array<{ title: string, check: boolean}>=[];
+  backs: Array<{ title: string, check: boolean }>=[];
+  shoulders: Array<{ title: string, check: boolean }>=[];
+  lowers: Array<{ title: string, check: boolean }>=[];
+  twos: Array<{ title: string, check: boolean }>=[];
+  threes: Array<{ title: string, check: boolean }>=[];
 
-    routine_detail(){
-      let profileModal = this.modalCtrl.create(DetailModalComponent);
-      profileModal.present();
-    }
+  constructor(public navCtrl: NavController,
+    public modalCtrl: ModalController,
+    fitness: FitnessProvider) {
+      this.count=0;
+      this.chests = fitness.getChests();
+      this.backs = fitness.getBacks();
+      this.shoulders = fitness.getShoulders();
+      this.lowers = fitness.getLowers();
+      this.twos = fitness.getTwos();
+      this.threes = fitness.getThrees();
+  }
+
   
+  ionViewDidLeave(){
+    this.myFitness = [];
+  }
+
+
+
+  selFitness(body) {
+    body.check = !body.check;
+    if(body.check==true){
+      this.count++;
+    }else{
+      this.count--;
+    }
+    
+  }
+
+  fitDetail(){
+    let profileModal = this.modalCtrl.create(DetailModalComponent);
+    profileModal.present();
+  }
+
+  goBucket() {
+    _.forEach(this.chests,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+    _.forEach(this.backs,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+    _.forEach(this.shoulders,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+    _.forEach(this.lowers,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+    _.forEach(this.twos,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+    _.forEach(this.threes,value=>{
+      if(value.check==true){
+        return this.myFitness.push({title:value.title,count:value.count,kcal:value.kcal});
+      }
+    })
+
+    this.navCtrl.push(BucketPage,this.myFitness);
+  }
+
+  searchFitness(fitness:any){
+    
+
+  }
+
 }

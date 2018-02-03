@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+     
+        <ion-title mode="ios">담은운동</ion-title>
+
+        <ion-buttons end right>
+          <button ion-button (click)="goStart();">
+            <ion-label class="user-name">
+              <img src="assets/imgs/play.png" width="22px" height="22px">
+            </ion-label>
+          </button>
+        </ion-buttons>
+
+      <!-- </ion-toolbar> -->
+    </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-group reorder="true" (ionItemReorder)="reorderItems($event)">
+      <ion-item *ngFor="let item of items">
+        <h2>{{item.title}}</h2>
+        <span class="all-count">{{item.count}} x 3세트</span>
+        <span class="tag">0:30</span>
+        <span class="tag">{{item.kcal}}</span>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
+
+</ion-content>
+
+<ion-footer>
+  
+
+</ion-footer>
