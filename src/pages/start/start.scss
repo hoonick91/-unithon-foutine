@@ -4,27 +4,58 @@ page-start {
         background-size: 100%;
         background-repeat: no-repeat;
 
-        ion-list{
-            padding-top: 80% !important;   
+        ion-grid{
+            ion-row{
+                &:nth-child(1) {
+                    text-align: center;
+                    padding-top: 35%;
+                    padding-left: 3%;
+                    color: #FFF;
+                    font-size: 25px;
+                    font-weight: bold;
+                }
+                &:nth-child(2) {
+                    ion-col {
+                        &:nth-child(2){
+                            text-align: right;
+                            padding-right: 3%;
+                        }
+                        &:nth-child(3){
+                            text-align: left;
+                            padding-left: 3%;
+                        }
+                        // display: inline-block;
+                    }
+                    // background: red;
+                }
+                
+            }
         }
-    }
-    .timer{
-        position: absolute;
-        color: #FFF;
-        font-size: 25px;
-        font-weight: bold;
-        top:120px;
-        left:140px;
-    }
 
-    .buttoms{
-        position: absolute;
-        top:180px;
-        left:155px;
-        span{
-            padding:10%;
+        ion-list{
+            padding-top: 20% !important;
+            padding-left: 8% !important;
         }
+
     }
+    
+    // .timer{
+    //     position: absolute;
+    //     color: #FFF;
+    //     font-size: 25px;
+    //     font-weight: bold;
+    //     top:120px;
+    //     left:140px;
+    // }
+
+    // .buttoms{
+    //     position: absolute;
+    //     top:180px;
+    //     left:155px;
+    //     span{
+    //         padding:10%;
+    //     }
+    // }
     .header-title{
         color: rgba($color: #000000, $alpha: 0.8);
     }

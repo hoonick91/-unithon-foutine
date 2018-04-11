@@ -1,24 +1,30 @@
 <ion-content>
-  <div>
-    <ion-label class="timer">{{min}}분 {{sec}}초</ion-label>
-    <div class="buttoms">
-      <span>
-        <img src="assets/imgs/palse.png">
-      </span>
-      <span (click)="goHome();">
-        <img src="assets/imgs/exit.png" width="22px" height="22px">
-      </span>
-    </div>
-  </div>
+  <ion-grid>
+    <ion-row>
+      <ion-label>{{min}}분 {{sec}}초</ion-label>
+    </ion-row>
+    <ion-row>
+      <ion-col col-4></ion-col>
+      <ion-col>
+        <img src="assets/imgs/palse.png" width="28px" height="28px">
+      </ion-col>
+      <ion-col (click)="goHome();">
+        <img src="assets/imgs/exit.png" width="40px" height="30px">
+      </ion-col>
+      <ion-col col-4></ion-col>
+    </ion-row>
+  </ion-grid>
   <ion-list padding>
     <ion-label class="header-title">
       운동현황
     </ion-label>
-    <ion-item *ngFor="let fitness of fitnesses">
-      {{fitness.title}}
-      <span class="tag">{{fitness.count}}</span>
-      <span class="tag">{{fitness.kcal}}</span>
-      <span class="status">{{fitness.status}}회</span>
+    <ion-label *ngIf="restTime==true">
+      쉬는 시간
+    </ion-label>
+    <ion-item *ngFor="let fitness of fitnesses" class="fit-item">
+      <ion-checkbox></ion-checkbox>
+      <span item-start left>{{fitness.title}}</span>
+      <span class="status" item-end right>{{fitness.status}}회</span>
     </ion-item>
 
   </ion-list>

@@ -1,0 +1,41 @@
+<ion-content>
+  <ion-list padding>
+    <ion-item>
+      <ion-label class="header-title">
+        운동완료 !
+      </ion-label>
+      
+    </ion-item>
+
+
+
+    <ion-item *ngFor="let fitness of fitnesses">
+      {{fitness.title}}
+      <span class="tag">{{fitness.count}}</span>
+      <span class="tag">{{fitness.kcal}}</span>
+      <span class="status">{{fitness.status}}회</span>
+    </ion-item>
+
+    <ion-item>
+      <ion-input placeholder="운동의 이름은 무엇인가요?"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-buttons>
+        <button ion-button icon-only start>
+          운동 저장하기
+        </button>
+
+        <button ion-button icon-only end (click)="dismiss();">
+          저장 안하기
+        </button>
+      </ion-buttons>
+
+    </ion-item>
+
+
+
+  </ion-list>
+
+
+</ion-content>

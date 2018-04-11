@@ -14,6 +14,7 @@ import { HttpModule } from '@angular/http';
 import { FitnessProvider } from '../providers/fitness/fitness';
 import { HttpClientModule } from '@angular/common/http';
 import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
+import { EndModalComponent } from '../components/end-modal/end-modal';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     StartPage,
     AvatarComponent,
     DetailModalComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    EndModalComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +43,8 @@ import { ProgressBarComponent } from '../components/progress-bar/progress-bar';
     StartPage,
     AvatarComponent,
     DetailModalComponent,
-    ProgressBarComponent
+    ProgressBarComponent,
+    EndModalComponent
   ],
   providers: [
     StatusBar,
